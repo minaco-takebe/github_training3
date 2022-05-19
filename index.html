@@ -19,8 +19,24 @@
     <input type="text2" id="text2">
   </form>
 
-    <input type="button" value="ボタン" onclick="clickButton()">
+    <input type="button" value="ボタン" id="checkButton">
 
+    <p id="msg"></p>
+    
+    <script>
+      function clickButton () {
+        msg.innerText = text1.value + text2.value;
+      }
+
+      let text1 = document.getElementById('text1');
+      let text2 = document.getElementById('text2');
+      let msg = document.getElementById('msg')
+      text1.value = '';
+      text2.value = '';
+
+      let checkButton = document.getElementById('checkButton');
+      checkButton,addEventListener('click', clickButton);
+    </script>
 
 </body>
 </html>
