@@ -12,13 +12,25 @@
   </style>
 </head>
 <body>
-  <p id="msg">こんにちは</p>
+  <p>こんにちは</p>
 
   <form>
-    <input type="text">
+    <input type="text" id="text">
   
     <input type="button" value="ボタン" onclick="clickButton()">
+
+    <p id="msg"></p>
   </form>
+
+  <script>
+    function clickButton () {
+      msg.innerText = text.value; 
+    }
+
+    let text = document.getElementById('text');
+    let msg = document.getElementById('msg');
+    text.value = '';
+  </script>
 
 </body>
 </html>
