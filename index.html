@@ -5,8 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>初歩の初歩</title>
+  <style>
+    body {
+      background: skyblue;
+    }
+  </style>
 </head>
 <body>
-  
+  <p id="msg">こんにちは</p>
+
+  <input type="button" value="ボタン" onclick="clickButton()">
+
+  <script>
+    function clickButton() {
+      msg.innerText='こんばんは';
+    }
+  </script>
 </body>
 </html>
