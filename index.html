@@ -14,13 +14,36 @@
 <body>
   <p>こんにちは</p>
 
-  <dl>
+  <div>
     <p>メールアドレス入力欄</p>
     <input type="email" id="email" size="50">
     <p>確認入力欄</p>
     <input type="email" id="emailConfirm" size="50">
-  </dl>
+  </div>
 
+  <input type="button" value="Check" id="btn"">
+
+  <div id="result"></div>
+  
+  <script>
+    let btn = document.getElementById('btn');
+    btn.addEventListener('click', clickButton);
+
+    function clickButton () {
+      let email = document.getElementById('email').value;
+      let emailConfirm = document.getElementById('emailConfirm').value;
+      let result = document.getElementById('result');
+
+      if (email == emailConfirm) {
+        result.textContent = '一致しています';
+      }
+      else {
+        result.textContent = '一致していません';
+      }
+    }
+
+
+  </script>
 
 </body>
 </html>
