@@ -34,7 +34,10 @@
       let emailConfirm = document.getElementById('emailConfirm').value;
       let result = document.getElementById('result');
 
-      if (email == emailConfirm) {
+      if (email == '' || emailConfirm == '') {
+        result.textContent = 'メールアドレスを入力してください'
+      }
+      else if (email == emailConfirm) {
         result.textContent = '一致しています';
       }
       else {
