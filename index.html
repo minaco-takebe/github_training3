@@ -13,17 +13,19 @@
 </head>
 <body>
   <p>こんにちは</p>
-
-  <div>
-    <p>メールアドレス入力欄</p>
-    <input type="email" id="email" size="50">
-    <p>確認入力欄</p>
-    <input type="email" id="emailConfirm" size="50">
-  </div>
-
-  <input type="button" value="Check" id="btn"">
-
-  <div id="result"></div>
+  <form>
+    <div>
+      <p>メールアドレス入力欄</p>
+      <input type="email" id="email" size="50">
+      <div id="result1"></div>
+      <p>確認入力欄</p>
+      <input type="email" id="emailConfirm" size="50">
+    </div>
+  
+    <input type="button" value="Check" id="btn"">
+  
+    <div id="result2"></div>
+  </form>
   
   <script>
     let btn = document.getElementById('btn');
@@ -32,20 +34,29 @@
     function clickButton () {
       let email = document.getElementById('email').value;
       let emailConfirm = document.getElementById('emailConfirm').value;
-      let result = document.getElementById('result');
+      let result1 = document.getElementById('result1');
+      let result2 = document.getElementById('result2');
+      let pattern = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
 
-      if (email == '' || emailConfirm == '') {
-        result.textContent = 'メールアドレスを入力してください'
+      if (email == '') {
+        result1.textContent = '';
+        result2.textContent = 'メールアドレスを入力してください';
+      }
+      else if (!pattern.test(email)) {
+        result1.textContent = '正しいメールアドレスを入力してください';
+        if (emailConfirm == '') {
+          result2.textContent = '確認入力欄にメールアドレスを入力してください';
+        }
       }
       else if (email == emailConfirm) {
-        result.textContent = '一致しています';
+        result1.textContent = '';
+        result2.textContent = '一致しています';
       }
       else {
-        result.textContent = '一致していません';
+        result1.textContent = '';
+        result2.textContent = '一致していません';
       }
     }
-
-
   </script>
 
 </body>
